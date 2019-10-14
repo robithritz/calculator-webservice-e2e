@@ -4,12 +4,7 @@ import { addService } from './calculator.service';
 
 const server = createServer((req, res) => {
     const url = parse(req.url);
-    if (url.pathname == "/") {
-        res.statusCode = 404;
-        res.end();
-    } else {
-        addService(req, res);
-    }
+    addService(req, res);
 })
 
 server.listen(3000, () => {

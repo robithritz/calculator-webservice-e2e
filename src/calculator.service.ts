@@ -6,6 +6,12 @@ function addService(req: IncomingMessage, res: ServerResponse) {
     const url = parse(req.url, true);
     console.log(url.query);
     console.log(url.pathname);
+    const pathname = url.pathname;
+    if (url.pathname != '/add' && url.pathname != '/substract' && url.pathname != '/multiple' && url.pathname != '/divide') {
+        res.statusCode = 404;
+        res.end();
+        return;
+    }
     if (!url.query['i1'] || !url.query['i2']) {
         res.statusCode = 400;
         res.end();
