@@ -4,15 +4,27 @@
   "description": "Calculator Webservice",
   "main": "dist/server.js",
   "scripts": {
-    "test": "",
+    "test": "mocha",
+    "test-e2e": "mocha --config ./test/.mocharc.yaml",
     "dev": "tsc -w",
+    "dev-test": "tsc -w -p test",
     "build": "tsc",
-    "start": "node ."
+    "build-test": "tsc -p test",
+    "start": "node .",
+    "nodemon": "nodemon --delay 1000ms -e js --watch dist"
   },
   "author": "Robith Ritz",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.2.3",
+    "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.12",
+    "@types/request": "^2.48.3",
+    "@types/request-promise-native": "^1.0.17",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
     "typescript": "^3.6.4"
   }
 }

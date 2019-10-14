@@ -1,9 +1,6 @@
 import { IncomingMessage, ServerResponse } from "http";
 import { parse } from "url";
-import { Calculator } from "./calculator";
-import { resolveNaptr } from "dns";
-
-let calc = new Calculator();
+import { add, divide, multiple, substract } from "./calculator";
 
 function addService(req: IncomingMessage, res: ServerResponse) {
     const url = parse(req.url, true);
@@ -27,19 +24,19 @@ function addService(req: IncomingMessage, res: ServerResponse) {
     res.setHeader("Content-Type", "application/json");
     switch (url.pathname) {
         case '/add':
-            res.write(JSON.stringify({ result: calc.add(input1, input2).toString() }));
+            res.write(JSON.stringify({ result: add(input1, input2) }));
             res.end();
             break;
         case '/substract':
-            res.write(JSON.stringify({ result: calc.substract(input1, input2).toString() }));
+            res.write(JSON.stringify({ result: substract(input1, input2) }));
             res.end();
             break;
         case '/multiple':
-            res.write(JSON.stringify({ result: calc.multiple(input1, input2).toString() }));
+            res.write(JSON.stringify({ result: multiple(input1, input2) }));
             res.end();
             break;
         case '/divide':
-            res.write(JSON.stringify({ result: calc.divide(input1, input2).toString() }));
+            res.write(JSON.stringify({ result: divide(input1, input2) }));
             res.end();
             break;
     }
