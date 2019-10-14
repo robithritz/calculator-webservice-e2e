@@ -19,7 +19,7 @@ npm run test
 ```
 - e2e Test
 ```
-npm run test-dev
+npm run test-e2e
 ```
 
 `` author: Robith Ritz ``
